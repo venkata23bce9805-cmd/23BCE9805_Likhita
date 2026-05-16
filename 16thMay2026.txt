@@ -1,0 +1,31 @@
+create database tb;
+use tb;
+create table dept(
+deptnm varchar(20),
+deptid int
+);
+insert into dept values('CSE',111);
+insert into dept values('EEE',112);
+insert into dept values('ECE',113);
+insert into dept values('MECH',114);
+insert into dept values('CSE',115);
+
+create table category(
+name varchar(20),
+id int);
+
+insert into category values('Laptop',1);
+insert into category values('Mobiles',2);
+insert into category values('headphones',3);
+insert into category values('charger',4);
+insert into category values('earpods',5);
+
+create table customers(
+custid varchar(20),
+custnm varchar(20)
+);
+insert into customers values(106,'asha');
+insert into customers values(123,'hartik');
+insert into customers values(151,'esha');
+insert into customers values(178,'vysha');
+insert into customers values(181,'rupa');
