@@ -1,0 +1,130 @@
+show databases;
+
+create database vitcampus;
+
+use vitcampus;
+
+show tables from vitcampus;
+
+create table cse(
+sid int, sname varchar(30), smarks int
+);
+
+select * from cse;
+
+desc cse;
+
+alter table cse add(
+sdepatment varchar(30)
+);
+
+desc cse;
+
+insert into cse values(
+105,'tamil',99,'cse');
+
+
+alter table cse add(
+sCountry varchar(30) default 'INDIA'
+);
+
+alter table cse rename column Scountry to SLocation;
+
+alter table cse add(
+sphn int8, sphn2 int8);
+
+alter table cse drop column sphn2;
+
+select * from cse;
+
+truncate table cse;
+
+desc cse;
+
+show tables from vitcampus;
+
+delete from eee;
+
+select * from eee;
+
+rename table eee to ECE;
+
+use vitcampus;
+
+CREATE TABLE Worker (
+	WORKER_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	FIRST_NAME CHAR(25),
+	LAST_NAME CHAR(25),
+	SALARY INT(15),
+	JOINING_DATE DATETIME,
+	DEPARTMENT CHAR(25)
+);
+
+INSERT INTO Worker 
+	(WORKER_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT) VALUES
+		(001, 'Monika', 'Arora', 100000, '14-02-20 09.00.00', 'HR'),
+		(002, 'Niharika', 'Verma', 80000, '14-06-11 09.00.00', 'Admin'),
+		(003, 'Vishal', 'Singhal', 300000, '14-02-20 09.00.00', 'HR'),
+		(004, 'Amitabh', 'Singh', 500000, '14-02-20 09.00.00', 'Admin'),
+		(005, 'Vivek', 'Bhati', 500000, '14-06-11 09.00.00', 'Admin'),
+		(006, 'Vipul', 'Diwan', 200000, '14-06-11 09.00.00', 'Account'),
+		(007, 'Satish', 'Kumar', 75000, '14-01-20 09.00.00', 'Account'),
+		(008, 'Geetika', 'Chauhan', 90000, '14-04-11 09.00.00', 'Admin');
+        
+        
+        
+ select * from worker;
+ 
+ update worker set First_name='Jayanth',Last_name='V' where worker_id=1; 
+ 
+ update worker set salary=salary+5000;
+ 
+ delete from worker where worker_id=8;
+        
+
+ create table emp(id int);
+ insert into emp  values (101);
+ select * from emp;
+ start transaction;
+
+ 
+ savepoint time15;
+ insert into emp values (102);
+ savepoint time16;
+ select * from emp;
+insert into emp values (103);
+savepoint time17;
+rollback to time17;
+insert into emp values (104);
+savepoint time18;
+rollback to time17;
+select * from emp;
+
+create table class(name varchar(30),id int);
+start transaction;
+COMMIT;
+update class set name='Abhijit' where id='5';
+savepoint A;
+insert into class values('Chris',6);
+savepoint B;
+insert into class values('Bravo',7);
+savepoint C;
+select * from class;
+
+select * from worker;
+select first_name,department from worker
+where worker_id=1;
+select first_name,salary,department from worker 
+where salary<10000 and department='Admin';
+
+select worker_id,salary from worker 
+where salary>=50000;
+
+select joining_date from worker 
+where worker_id!=001;
+
+select first_name from worker
+where salary>10000 or department='HR';
+
+select first_name from worker 
+where department='HR';
