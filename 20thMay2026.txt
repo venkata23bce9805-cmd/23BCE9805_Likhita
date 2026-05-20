@@ -1,0 +1,100 @@
+use vitcampus;
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) unique not null,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);
+desc persons;
+
+insert into persons values (107,'l','Asha',null);
+
+alter table Persons
+add unique (Age);
+
+alter table Persons
+drop constraint Age;
+
+create table Employee(
+empid int NOT NULL,
+FirstName varchar(30),
+lastName varchar(30),
+phno int
+);
+desc employee;
+
+alter table employee
+add unique (phno);
+
+alter table employee
+drop constraint phno;
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CHECK (Age>=18)
+);
+
+ALTER TABLE Persons	
+ADD CHECK (Age>=18);
+
+insert into Persons values (112,'h','ashi','19');
+insert into Persons values (108,'l','david','21');
+insert into Persons values (117,'k','farim',25);
+
+drop table persons;
+CREATE TABLE Persons (
+  
+    Age int not null,
+    CHECK (Age>=18 and age <=23)
+);
+
+insert into persons values (21);
+
+create table person1 (
+id int not null,
+lastname varchar(28) not null,
+firstname varchar(30),
+Age int,
+city varchar(40)  default 'coimbatore'
+);
+desc person1;
+
+create table products(
+pid int primary key,
+pname varchar(100) not null,
+prefNo int not null unique
+);
+
+desc products;
+insert into products values(1,'electronics',1229);
+select * from products;
+insert into products values(2,'furniture',17784);
+
+alter table products drop primary key;
+
+drop table products;
+create table category(
+cid int primary key,
+cname varchar(110) not null
+);
+
+insert into category values (101,'electronics'),(102,'furniture'),(103,'home appliances');
+
+create table products(
+pid int primary key,
+pname varchar(100) not null,
+cid int,
+foreign key (cid) references category(cid)
+);
+
+desc products;
+
+delete from category where cid=1;
+insert into products values (301,'hp laptop',101);
+insert into products values (302,'wooden cub',102);
+insert into products values (303,'power bank',103);
+
+select * from products;
